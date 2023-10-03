@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:management/widgets/appbar_action_icon.dart';
 
-import '../utils/utils.dart';
+import '../utils/app_color.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Function() onTap;

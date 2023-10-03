@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:management/pages/create_schedule.dart';
+import 'package:management/utils/constants.dart';
+import 'package:management/utils/utils.dart';
 import 'package:management/widgets/customAppBar.dart';
 import 'package:management/widgets/custom_floating_action_button.dart';
 import 'package:management/widgets/drawer_screen.dart';
@@ -9,7 +11,7 @@ import 'package:management/widgets/search_text_field.dart';
 
 import '../utils/paths.dart';
 import '../utils/strings.dart';
-import '../utils/utils.dart';
+import '../utils/app_color.dart';
 
 class ClassSchedule extends StatefulWidget {
   const ClassSchedule({super.key});
@@ -79,15 +81,15 @@ class _ClassScheduleState extends State<ClassSchedule> {
         'studentCount': '41',
       }
     ];
-    final ScreenSize = MediaQuery.of(context).size;
+    final screenSize = MediaQuery.of(context).size;
 
     return AdvancedDrawer(
       controller: controller,
       openScale: 0.7,
       openRatio: 0.65,
       backdrop: SizedBox(
-        width: ScreenSize.width,
-        height: ScreenSize.height,
+        width: screenSize.width,
+        height: screenSize.height,
         child: Image.asset(
           'assets/images/drawerBackGround.png',
           fit: BoxFit.fill,
@@ -116,18 +118,21 @@ class _ClassScheduleState extends State<ClassSchedule> {
           },
         ),
         body: SingleChildScrollView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           child: Padding(
-            padding: const EdgeInsets.all(16.0).copyWith(bottom: 0),
+            padding: EdgeInsets.all(bodyPadding).copyWith(bottom: 0),
             child: Column(
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SearchTextField(
+                    SearchTextField(
                       hintText: "Class or section",
+                      onChanged: (p0) {
+                        //TODO:
+                      },
                     ),
-                    const SizedBox(height: 15.0),
+                    Utils().bodySizedBox,
                     Text(
                       'Schedule',
                       style: TextStyle(
@@ -135,7 +140,7 @@ class _ClassScheduleState extends State<ClassSchedule> {
                           fontSize: 16,
                           fontWeight: FontWeight.w700),
                     ),
-                    const SizedBox(height: 15.0),
+                    Utils().bodySizedBox,
                     SizedBox(
                       height: MediaQuery.of(context).size.height,
                       child: GridView.builder(

@@ -4,7 +4,7 @@ class Paths {
   static const String holidaysIcon = 'assets/images/holidayIcon.png';
   static const String drawerBackGroundImage =
       'assets/images/drawerBackGround.png';
-  static const String topBackGroundImage = 'assets/images/topBackGround.png';
+  // static const String topBackGroundImage = 'assets/images/topBackGround.png';
   static const String schoolProfileImage = 'assets/images/appbarLogo.png';
   static const String classesAndSectionIcon =
       'assets/images/class&sectionIcon.png';

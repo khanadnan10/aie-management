@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:management/utils/utils.dart';
+import 'package:management/utils/app_color.dart';
 
 class TimeTablePeriodCard extends StatelessWidget {
   final int period;

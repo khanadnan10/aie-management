@@ -1,9 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:management/utils/constants.dart';
 import 'package:management/utils/paths.dart';
 import 'package:management/utils/strings.dart';
 
+import 'package:management/utils/app_color.dart';
 import 'package:management/utils/utils.dart';
 import 'package:management/widgets/custom_floating_action_button.dart';
 import 'package:management/widgets/drawer_screen.dart';
@@ -75,16 +77,19 @@ class _SubjectAssignState extends State<SubjectAssign> {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: bodyPadding),
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SearchTextField(
+                SearchTextField(
                   hintText: "class",
+                  onChanged: (p0) {
+                    //TODO: Search Text field
+                  },
                 ),
-                const SizedBox(height: 15.0),
+                Utils().bodySizedBox,
                 Text(
                   'Subject assign to classes',
                   style: TextStyle(
@@ -92,7 +97,7 @@ class _SubjectAssignState extends State<SubjectAssign> {
                       fontSize: 16,
                       fontWeight: FontWeight.w700),
                 ),
-                const SizedBox(height: 15.0),
+                Utils().bodySizedBox,
                 SubjectCard(
                   className: 'Class V',
                   color: AppColor.kLightGreen,
@@ -106,7 +111,7 @@ class _SubjectAssignState extends State<SubjectAssign> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 15.0),
+                Utils().bodySizedBox,
                 SubjectCard(
                   className: 'Class VI',
                   color: AppColor.kPaleYellow,
@@ -120,7 +125,7 @@ class _SubjectAssignState extends State<SubjectAssign> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 15.0),
+                Utils().bodySizedBox,
                 SubjectCard(
                   className: 'Class VII',
                   color: AppColor.kLightGreen,

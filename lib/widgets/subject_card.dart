@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:management/utils/utils.dart';
+import 'package:management/utils/app_color.dart';
 
 class SubjectCard extends StatelessWidget {
   final String className;

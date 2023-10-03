@@ -2,13 +2,23 @@
 
 import 'package:flutter/material.dart';
 
-import '../utils/utils.dart';
+import '../utils/app_color.dart';
 
 class SearchTextField extends StatelessWidget {
+  final Color fillColor;
+  final Color prefixIconColor;
+  final Color borderColor;
   final String hintText;
+  final Function(String?) onChanged;
+  final bool activeSuffixIcon; // for later use in other components
   const SearchTextField({
     Key? key,
+    this.fillColor = Colors.white,
+    this.prefixIconColor = const Color(0xff9163D7),
+    this.borderColor = Colors.white,
     required this.hintText,
+    required this.onChanged,
+    this.activeSuffixIcon = true,
   }) : super(key: key);
 
   @override
@@ -16,14 +26,12 @@ class SearchTextField extends StatelessWidget {
     return TextField(
       textCapitalization: TextCapitalization.words,
       keyboardType: TextInputType.text,
-      onChanged: (value) {
-        //TODO: Search facility
-      },
+      onChanged: onChanged,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
             width: 1,
-            color: AppColor.kPurple,
+            color: borderColor,
           ),
           borderRadius: BorderRadius.circular(40.0),
         ),
@@ -35,7 +43,7 @@ class SearchTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(40.0),
         ),
         filled: true,
-        fillColor: Colors.white,
+        fillColor: fillColor,
         contentPadding: const EdgeInsets.symmetric(horizontal: 16),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(
@@ -48,16 +56,19 @@ class SearchTextField extends StatelessWidget {
         prefixIcon: Icon(
           Icons.search,
           size: 28,
-          color: AppColor.kPurple,
+          color: prefixIconColor,
         ),
-        suffixIcon: Icon(
-          Icons.arrow_drop_down_rounded,
-          size: 48,
-          color: AppColor.kPurple,
-        ),
+        suffixIcon: activeSuffixIcon == true
+            ? Icon(
+                Icons.arrow_drop_down_rounded,
+                size: 48,
+                color: AppColor.kPurple,
+              )
+            : null,
         hintText: hintText,
         hintStyle: TextStyle(
           color: AppColor.kGreyColor,
+          fontSize: 12.0,
         ),
       ),
     );

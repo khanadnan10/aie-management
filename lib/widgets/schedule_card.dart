@@ -1,18 +1,21 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:flutter/material.dart';
 
-import '../utils/utils.dart';
+import '../utils/app_color.dart';
 
 class ScheduleCard extends StatelessWidget {
   final String title;
   final String className;
   final String studentCount;
+  final Color color;
 
   const ScheduleCard({
     Key? key,
     required this.title,
     required this.className,
     required this.studentCount,
+    this.color = const Color(0xffEBE4F5),
   }) : super(key: key);
 
   @override
@@ -26,7 +29,7 @@ class ScheduleCard extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50.0),
-              color: AppColor.kLightPurple.withOpacity(0.3),
+              color: color,
             ),
             child: Text(
               title,

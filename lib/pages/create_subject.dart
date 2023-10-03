@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:management/utils/utils.dart';
+import 'package:management/utils/constants.dart';
+import 'package:management/utils/app_color.dart';
 import 'package:management/widgets/custom_drop_down_menu.dart';
 
 class CreateSubject extends StatefulWidget {
@@ -47,7 +48,7 @@ class _CreateSubjectState extends State<CreateSubject> {
         elevation: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding:  EdgeInsets.symmetric(horizontal: bodyPadding),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

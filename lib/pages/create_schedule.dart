@@ -1,12 +1,10 @@
-import 'dart:developer';
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:management/utils/constants.dart';
 import 'package:management/widgets/custom_drop_down_menu_with_title.dart';
 import 'package:management/widgets/dashed_line.dart';
 import 'package:management/widgets/schedule_stepper.dart';
 
-import '../utils/utils.dart';
+import '../utils/app_color.dart';
 import '../widgets/custom_drop_down_menu.dart';
 
 class CreateSchedule extends StatefulWidget {
@@ -56,7 +54,7 @@ class _CreateScheduleState extends State<CreateSchedule> {
         elevation: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding:  EdgeInsets.symmetric(horizontal:bodyPadding),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -64,7 +62,7 @@ class _CreateScheduleState extends State<CreateSchedule> {
                 children: [
                   Container(
                     height: 12,
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    padding:  EdgeInsets.symmetric(horizontal: bodyPadding),
                     child: DashedLine(
                       color: AppColor.kInActiveGreyColor,
                     ),

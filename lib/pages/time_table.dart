@@ -1,7 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:management/utils/constants.dart';
 
-import 'package:management/utils/utils.dart';
+import 'package:management/utils/app_color.dart';
 import 'package:management/widgets/time_table_lunch_period_card.dart';
 import 'package:management/widgets/time_table_period_card.dart';
 
@@ -93,8 +94,8 @@ class _TimeTableState extends State<TimeTable> {
         children: [
           Container(
             height: 100 - kToolbarHeight,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
+            padding:  EdgeInsets.symmetric(
+              horizontal: bodyPadding,
             ).copyWith(bottom: 12),
             decoration: BoxDecoration(
               gradient: AppColor.kPrimaryLightGradient,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:management/utils/utils.dart';
 import 'package:management/widgets/subject_name.dart';
-import '../utils/utils.dart';
+import '../utils/app_color.dart';
 
 class SubjectSection extends StatelessWidget {
   const SubjectSection({
@@ -25,7 +26,7 @@ class SubjectSection extends StatelessWidget {
             color: AppColor.kGreyColor,
           ),
         ),
-        const SizedBox(height: 15.0),
+        Utils().bodySizedBox,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
