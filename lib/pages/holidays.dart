@@ -1,13 +1,93 @@
 import 'package:flutter/material.dart';
 import 'package:management/utils/app_color.dart';
 import 'package:management/utils/constants.dart';
-import 'package:management/utils/utils.dart';
+import 'package:management/widgets/holiday_card.dart';
 
 class Holidays extends StatelessWidget {
   const Holidays({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List bgColor = [
+      const Color(0xffFCF2D9),
+      const Color(0xffCFECFE),
+      const Color(0xffD9F6F4),
+      const Color(0xffFFE0DB),
+    ];
+    //TODO: Remove when integrating with the backend
+
+    List<Map<String, dynamic>> holiday = [
+      {
+        'month': 'May',
+        'date': '16',
+        'eventType': [
+          {
+            'eventName': 'Festival Name',
+          }
+        ],
+      },
+      {
+        'month': 'June',
+        'date': '16',
+        'eventType': [
+          {
+            'eventName': 'Festival Name',
+          },
+          {
+            'eventName': 'Event Name',
+          }
+        ],
+      },
+      {
+        'month': 'June',
+        'date': '25',
+        'eventType': [
+          {
+            'eventName': 'Festival Name',
+          }
+        ],
+      },
+      {
+        'month': 'July',
+        'date': '05',
+        'eventType': [
+          {
+            'eventName': 'Event Name',
+          }
+        ],
+      },
+      {
+        'month': 'May',
+        'date': '16',
+        'eventType': [
+          {
+            'eventName': 'Festival Name',
+          }
+        ],
+      },
+      {
+        'month': 'June',
+        'date': '16',
+        'eventType': [
+          {
+            'eventName': 'Event Name',
+          },
+          {
+            'eventName': 'Festival Name',
+          },
+        ],
+      },
+      {
+        'month': 'June',
+        'date': '25',
+        'eventType': [
+          {
+            'eventName': 'Festival Name',
+          },
+        ],
+      },
+    ];
+
     final screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -56,171 +136,25 @@ class Holidays extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.all(bodyPadding).copyWith(bottom: 0),
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                color: Colors.grey,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Column(
-                    children: [
-                      Text('May'),
-                      Text(
-                        '16',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Utils(width: 10).bodySizedBox,
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 50,
-                                padding: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xffFCF2D9),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: const Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    'Festival name',
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 50,
-                                padding: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xffFCF2D9),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: const Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    'Festival name',
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 50,
-                                padding: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xffFCF2D9),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: const Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    'Festival name',
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 50,
-                                padding: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xffFCF2D9),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: const Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    'Festival name',
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+        child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
+          itemCount: holiday.length,
+          itemBuilder: (context, index) {
+            final colorIndex = index % bgColor.length;
+
+            return HolidayCard(
+              month: holiday[index]['month'],
+              date: holiday[index]['date'],
+              children: holiday[index]['eventType'].map<Widget>((event) {
+                return HolidayEventNameCard(
+                  eventName: event['eventName'],
+                  color: bgColor[colorIndex],
+                );
+              }).toList(),
+            );
+          },
         ),
       ),
     );
   }
 }
-
-/* 
-SizedBox(
-              height: 60,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text('May'),
-                        Text(
-                          '16',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Utils(width: 10).bodySizedBox,
-                  Expanded(
-                    child: Container(
-                      height: 50,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: const Color(0xffFCF2D9),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      child: const Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          'Festival name',
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
- */
