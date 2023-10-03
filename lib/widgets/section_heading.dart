@@ -17,7 +17,10 @@ class SectionHeading extends StatelessWidget {
       style: TextStyle(
         fontWeight: FontWeight.w700,
         fontSize: fontSize,
+        
       ),
+      softWrap: true,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }

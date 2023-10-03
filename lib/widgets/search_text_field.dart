@@ -15,7 +15,7 @@ class SearchTextField extends StatelessWidget {
     Key? key,
     this.fillColor = Colors.white,
     this.prefixIconColor = const Color(0xff9163D7),
-    this.borderColor = Colors.white,
+    this.borderColor = const Color(0xff9163D7),
     required this.hintText,
     required this.onChanged,
     this.activeSuffixIcon = true,

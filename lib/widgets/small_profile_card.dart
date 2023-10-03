@@ -51,6 +51,8 @@ class SmallProfileCard extends StatelessWidget {
           Utils(height: 4).bodySizedBox,
           Text(
             subTitle,
+            softWrap: true,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               fontSize: 8.0,
               color: AppColor.kGreyColor,

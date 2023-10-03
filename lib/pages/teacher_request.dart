@@ -14,14 +14,14 @@ import 'package:management/widgets/section_heading.dart';
 import '../utils/paths.dart';
 import '../utils/strings.dart';
 
-class StudentRequest extends StatefulWidget {
-  const StudentRequest({super.key});
+class TeacherRequest extends StatefulWidget {
+  const TeacherRequest({super.key});
 
   @override
-  State<StudentRequest> createState() => _StudentRequestState();
+  State<TeacherRequest> createState() => _TeacherRequestState();
 }
 
-class _StudentRequestState extends State<StudentRequest> {
+class _TeacherRequestState extends State<TeacherRequest> {
   final AdvancedDrawerController controller = AdvancedDrawerController();
   bool isContainerVisible = false;
 
@@ -80,14 +80,14 @@ class _StudentRequestState extends State<StudentRequest> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const SectionHeading(text: 'Student request'),
+                        const SectionHeading(text: 'Teacher request'),
                         IconButton(
                           onPressed: () {
                             //TODO: Accept all request at once or reject
                             setState(() {
                               isContainerVisible = !isContainerVisible;
                             });
-                            print('Student Request more option tapped 📌');
+                            print('Teacher Request more option tapped 👩‍🏫');
                           },
                           icon: Icon(
                             Icons.more_horiz,
@@ -105,22 +105,22 @@ class _StudentRequestState extends State<StudentRequest> {
                           return GestureDetector(
                             onTap: () => nextPage(
                               context,
-                              const ProfileDetails(),
+                              const ProfileDetails(), // TODO: Change with teacher profile card
                             ),
                             child: RectangleRequestCard(
                               profileImage: Paths.drawerBackGroundImage,
-                              title: 'Neetu Goel',
-                              subTitle: 'Class V',
+                              title: 'Asha Goel',
+                              subTitle: 'Hindi, English  ',
                               timeAgo: '5 hours ago',
                               onAccept: () {
                                 //TODO: Accept the student request
 
-                                print('Student has been accepted 🥳');
+                                print('Teacher has been accepted 🥳');
                               },
                               onReject: () {
                                 //TODO: Reject the student request
 
-                                print('Student has been rejected 😥');
+                                print('Teacher has been rejected 😥');
                               },
                             ),
                           );
@@ -162,7 +162,7 @@ class _StudentRequestState extends State<StudentRequest> {
                                   setState(() {
                                     isContainerVisible = false;
                                   });
-                                  print('All student has been accepted');
+                                  print('All Teacher has been accepted');
                                 },
                               ),
                               Utils().bodySizedBox,
@@ -173,7 +173,7 @@ class _StudentRequestState extends State<StudentRequest> {
                                   setState(() {
                                     isContainerVisible = false;
                                   });
-                                  print('All student has been Rejected');
+                                  print('All Teacher has been Rejected');
                                 },
                               ),
                             ],

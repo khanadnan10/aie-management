@@ -76,6 +76,7 @@ class RectangleRequestCard extends StatelessWidget {
                     Expanded(
                       child: CustomRoundedButton(
                         text: 'Accept',
+                        borderEnable: true,
                         onTap: onAccept,
                       ),
                     ),
@@ -83,6 +84,7 @@ class RectangleRequestCard extends StatelessWidget {
                     Expanded(
                       child: CustomRoundedButton(
                         text: 'Reject',
+                        borderEnable: true,
                         onTap: onReject,
                       ),
                     ),

@@ -1,30 +1,27 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:management/pages/student_request.dart';
-import 'package:management/utils/app_color.dart';
-
+import 'package:management/pages/teacher_request.dart';
 import 'package:management/utils/constants.dart';
 import 'package:management/utils/utils.dart';
 import 'package:management/widgets/customAppBar.dart';
 import 'package:management/widgets/pending_card.dart';
-import 'package:management/widgets/schedule_card.dart';
 import 'package:management/widgets/section_heading.dart';
 import 'package:management/widgets/small_profile_card.dart';
+import 'package:management/widgets/teacher_department_card.dart';
 
 import '../utils/paths.dart';
 import '../utils/strings.dart';
 import '../widgets/drawer_screen.dart';
 import '../widgets/search_text_field.dart';
 
-class StudentSearch extends StatefulWidget {
-  const StudentSearch({super.key});
+class TeacherSearch extends StatefulWidget {
+  const TeacherSearch({super.key});
 
   @override
-  State<StudentSearch> createState() => _StudentSearchState();
+  State<TeacherSearch> createState() => _TeacherSearchState();
 }
 
-class _StudentSearchState extends State<StudentSearch> {
+class _TeacherSearchState extends State<TeacherSearch> {
   final AdvancedDrawerController controller = AdvancedDrawerController();
   @override
   void dispose() {
@@ -35,6 +32,15 @@ class _StudentSearchState extends State<StudentSearch> {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
+
+    List<String> dept = [
+      'Physics',
+      'Chemistry',
+      'Biology',
+      'Accounts',
+      'English',
+      'Hindi',
+    ];
 
     return AdvancedDrawer(
       controller: controller,
@@ -79,7 +85,7 @@ class _StudentSearchState extends State<StudentSearch> {
               padding: EdgeInsets.all(bodyPadding).copyWith(bottom: 0),
               child: PendingCard(
                   //TODO Navigate to student search
-                  onTap: () => nextPage(context, const StudentRequest())),
+                  onTap: () => nextPage(context, const TeacherRequest())),
             ),
             Utils().bodySizedBox,
             Expanded(
@@ -92,7 +98,7 @@ class _StudentSearchState extends State<StudentSearch> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SectionHeading(
-                        text: 'Top scoring students from secondary classes',
+                        text: 'Best performed Teachers of the Year',
                       ),
                       Utils().bodySizedBox,
                       SizedBox(
@@ -106,14 +112,35 @@ class _StudentSearchState extends State<StudentSearch> {
                             child: const SmallProfileCard(
                               profileImage: Paths.schoolProfileImage,
                               title: 'Ritu K',
-                              subTitle: 'Class IV-C',
+                              subTitle: 'Science | Primary',
                             ),
                           ),
                         ),
                       ),
                       Utils().bodySizedBox,
                       const SectionHeading(
-                        text: 'Top scoring students from primary section',
+                        text: 'Head of departments',
+                      ),
+                      Utils().bodySizedBox,
+                      SizedBox(
+                        height: 100,
+                        child: ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 10,
+                          itemBuilder: (context, index) => Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 5),
+                            child: const SmallProfileCard(
+                              profileImage: Paths.schoolProfileImage,
+                              title: 'Menakshi',
+                              subTitle: 'HOD | Physics',
+                            ),
+                          ),
+                        ),
+                      ),
+                      Utils().bodySizedBox,
+                      const SectionHeading(
+                        text: 'Secondary wing Teachers',
                       ),
                       Utils().bodySizedBox,
                       SizedBox(
@@ -127,14 +154,14 @@ class _StudentSearchState extends State<StudentSearch> {
                             child: const SmallProfileCard(
                               profileImage: Paths.schoolProfileImage,
                               title: 'Ritu K',
-                              subTitle: 'Class IV-C',
+                              subTitle: 'Arts | Secondary',
                             ),
                           ),
                         ),
                       ),
                       Utils().bodySizedBox,
                       const SectionHeading(
-                        text: 'All rounder students',
+                        text: 'Primary wing Teachers',
                       ),
                       Utils().bodySizedBox,
                       SizedBox(
@@ -148,35 +175,14 @@ class _StudentSearchState extends State<StudentSearch> {
                             child: const SmallProfileCard(
                               profileImage: Paths.schoolProfileImage,
                               title: 'Ritu K',
-                              subTitle: 'Class IV-C',
+                              subTitle: 'Arts | Primary',
                             ),
                           ),
                         ),
                       ),
                       Utils().bodySizedBox,
                       const SectionHeading(
-                        text: 'Top students in games',
-                      ),
-                      Utils().bodySizedBox,
-                      SizedBox(
-                        height: 100,
-                        child: ListView.builder(
-                          physics: const BouncingScrollPhysics(),
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 10,
-                          itemBuilder: (context, index) => Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 5),
-                            child: const SmallProfileCard(
-                              profileImage: Paths.schoolProfileImage,
-                              title: 'Ritu K',
-                              subTitle: 'Class IV-C',
-                            ),
-                          ),
-                        ),
-                      ),
-                      Utils().bodySizedBox,
-                      const SectionHeading(
-                        text: 'View students from class list',
+                        text: 'View Teachers from department',
                       ),
                       Utils().bodySizedBox,
                       SizedBox(
@@ -185,20 +191,21 @@ class _StudentSearchState extends State<StudentSearch> {
                           physics: const BouncingScrollPhysics(),
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 4,
-                            mainAxisExtent: 120,
+                            crossAxisCount: 2,
+                            mainAxisExtent: 80,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
                           ),
-                          itemCount: 12,
+                          itemCount: 6,
                           itemBuilder: (context, index) {
-                            return const ScheduleCard(
-                              title: 'I-A',
-                              className: 'I-A',
-                              studentCount: '23',
-                              color: Color(0xffD8F3FE),
+                            return  TeacherDepartmentCard(
+                              dept: dept[index],
+                              more: '2 more',
                             );
                           },
                         ),
                       ),
+                      Utils().bodySizedBox,
                     ],
                   ),
                 ),
@@ -210,3 +217,9 @@ class _StudentSearchState extends State<StudentSearch> {
     );
   }
 }
+
+
+
+/* 
+ 
+ */

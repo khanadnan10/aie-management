@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 double bodyPadding = 16.0;
 
-//Navigate to page 
+//Navigate to page
 nextPage(BuildContext context, page) {
   return Navigator.push(
     context,
@@ -10,4 +10,8 @@ nextPage(BuildContext context, page) {
       builder: (context) => page,
     ),
   );
+}
+
+popPage(BuildContext context) {
+  return Navigator.pop(context);
 }
