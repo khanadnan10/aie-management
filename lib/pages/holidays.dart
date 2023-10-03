@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:management/utils/app_color.dart';
 import 'package:management/utils/constants.dart';
+import 'package:management/utils/utils.dart';
 import 'package:management/widgets/holiday_card.dart';
+import 'package:management/widgets/section_heading.dart';
 
-class Holidays extends StatelessWidget {
+class Holidays extends StatefulWidget {
   const Holidays({super.key});
+
+  @override
+  State<Holidays> createState() => _HolidaysState();
+}
+
+class _HolidaysState extends State<Holidays> {
+  final TextEditingController holidayDateController = TextEditingController();
+  final TextEditingController festivalNameController = TextEditingController();
+
+  @override
+  void dispose() {
+    festivalNameController.dispose();
+    holidayDateController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,6 +133,102 @@ class Holidays extends StatelessWidget {
             onPressed: () {
               //TODO: Add Search functionality
               print('➕ Added');
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                          16.0), // Adjust the radius as needed
+                    ),
+                    content: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50.0),
+                      ),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            const SectionHeading(text: 'Create holiday'),
+                            Utils().bodySizedBox,
+                            TextField(
+                              controller: festivalNameController,
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                    borderRadius: BorderRadius.circular(12)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                    borderRadius: BorderRadius.circular(12)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                  borderSide: BorderSide.none,
+                                ),
+                                fillColor: Colors.grey[100],
+                                filled: true,
+                                hintText: 'Festival name',
+                                hintStyle: TextStyle(
+                                  color: AppColor.kGreyColor,
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                            ),
+                            Utils().bodySizedBox,
+                            TextField(
+                              controller: holidayDateController,
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                    borderRadius: BorderRadius.circular(12)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                    borderRadius: BorderRadius.circular(12)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                  borderSide: BorderSide.none,
+                                ),
+                                fillColor: Colors.grey[100],
+                                filled: true,
+                                suffixIconColor: AppColor.kGreyColor,
+                                suffixIcon: const Icon(Icons.date_range),
+                                hintText: '29 Sep 2023',
+                                hintStyle: TextStyle(
+                                  color: AppColor.kGreyColor,
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                            ),
+                            Utils().bodySizedBox,
+                            Material(
+                              borderRadius: BorderRadius.circular(50.0),
+                              child: Container(
+                                width: screenSize.width * 0.5,
+                                padding: const EdgeInsets.all(20.0),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50.0),
+                                    gradient: AppColor.kPrimaryGradient),
+                                child: Text(
+                                  'Assign',
+                                  style: TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w700,
+                                      color: AppColor.kWhiteColor),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
             },
             icon: Icon(
               Icons.add,
