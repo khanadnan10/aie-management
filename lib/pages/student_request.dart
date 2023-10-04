@@ -108,7 +108,7 @@ class _StudentRequestState extends State<StudentRequest> {
                               const ProfileDetails(),
                             ),
                             child: RectangleRequestCard(
-                              profileImage: Paths.drawerBackGroundImage,
+                              profileImage: 'assets/images/femaleCard.png',
                               title: 'Neetu Goel',
                               subTitle: 'Class V',
                               timeAgo: '5 hours ago',

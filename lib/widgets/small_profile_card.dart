@@ -31,11 +31,15 @@ class SmallProfileCard extends StatelessWidget {
                     .kGreyColor, // Using colors only to fill the background
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Image(
-                image: AssetImage(
-                  profileImage,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+
+                child: Image(
+                  image: AssetImage(
+                    profileImage,
+                  ),
+                  fit: BoxFit.cover,
                 ),
-                fit: BoxFit.fitHeight,
               ),
             ),
           ),

@@ -49,8 +49,8 @@ class CustomDropDownMenuWithTitle extends StatelessWidget {
           menuItems: menuItems,
           selectedItem: selectedItem,
           hintText: hintText,
-          onClick: onClick,
-          offClick: offClick,
+          onClickIcon: onClick,
+          offClickIcon: offClick,
         ),
       ],
     );

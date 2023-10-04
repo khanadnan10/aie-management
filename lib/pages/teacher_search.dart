@@ -102,15 +102,16 @@ class _TeacherSearchState extends State<TeacherSearch> {
                       ),
                       Utils().bodySizedBox,
                       SizedBox(
-                        height: 100,
+                        height: 120,
                         child: ListView.builder(
                           physics: const BouncingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
+                          // itemExtent: 100,
                           itemCount: 10,
                           itemBuilder: (context, index) => Container(
                             margin: const EdgeInsets.symmetric(horizontal: 5),
                             child: const SmallProfileCard(
-                              profileImage: Paths.schoolProfileImage,
+                              profileImage: 'assets/images/femaleCard.png',
                               title: 'Ritu K',
                               subTitle: 'Science | Primary',
                             ),
@@ -123,7 +124,7 @@ class _TeacherSearchState extends State<TeacherSearch> {
                       ),
                       Utils().bodySizedBox,
                       SizedBox(
-                        height: 100,
+                        height: 120,
                         child: ListView.builder(
                           physics: const BouncingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
@@ -131,7 +132,7 @@ class _TeacherSearchState extends State<TeacherSearch> {
                           itemBuilder: (context, index) => Container(
                             margin: const EdgeInsets.symmetric(horizontal: 5),
                             child: const SmallProfileCard(
-                              profileImage: Paths.schoolProfileImage,
+                              profileImage: 'assets/images/female.png',
                               title: 'Menakshi',
                               subTitle: 'HOD | Physics',
                             ),
@@ -144,7 +145,7 @@ class _TeacherSearchState extends State<TeacherSearch> {
                       ),
                       Utils().bodySizedBox,
                       SizedBox(
-                        height: 100,
+                        height: 120,
                         child: ListView.builder(
                           physics: const BouncingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
@@ -152,7 +153,7 @@ class _TeacherSearchState extends State<TeacherSearch> {
                           itemBuilder: (context, index) => Container(
                             margin: const EdgeInsets.symmetric(horizontal: 5),
                             child: const SmallProfileCard(
-                              profileImage: Paths.schoolProfileImage,
+                              profileImage: 'assets/images/femaleCard.png',
                               title: 'Ritu K',
                               subTitle: 'Arts | Secondary',
                             ),
@@ -165,15 +166,16 @@ class _TeacherSearchState extends State<TeacherSearch> {
                       ),
                       Utils().bodySizedBox,
                       SizedBox(
-                        height: 100,
+                        height: 120,
                         child: ListView.builder(
                           physics: const BouncingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
+                          itemExtent: 100,
                           itemCount: 10,
                           itemBuilder: (context, index) => Container(
                             margin: const EdgeInsets.symmetric(horizontal: 5),
                             child: const SmallProfileCard(
-                              profileImage: Paths.schoolProfileImage,
+                              profileImage: 'assets/images/female.png',
                               title: 'Ritu K',
                               subTitle: 'Arts | Primary',
                             ),
@@ -198,9 +200,20 @@ class _TeacherSearchState extends State<TeacherSearch> {
                           ),
                           itemCount: 6,
                           itemBuilder: (context, index) {
-                            return  TeacherDepartmentCard(
+                            return TeacherDepartmentCard(
                               dept: dept[index],
                               more: '2 more',
+                              onTap: () {
+                                //TODO: Show remaining faculties
+                                print('Show remaining faculties');
+                              },
+                              images: const [
+                                'assets/images/femaleCard.png',
+                                'assets/images/female.png',
+                                'assets/images/femaleCard.png',
+                                'assets/images/female.png',
+                                'assets/images/femaleCard.png',
+                              ],
                             );
                           },
                         ),

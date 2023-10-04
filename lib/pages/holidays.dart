@@ -70,7 +70,10 @@ class _HolidaysState extends State<Holidays> {
         'eventType': [
           {
             'eventName': 'Event Name',
-          }
+          },
+          {
+            'eventName': 'Event Name',
+          },
         ],
       },
       {

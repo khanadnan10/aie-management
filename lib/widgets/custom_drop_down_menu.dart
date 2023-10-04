@@ -9,20 +9,20 @@ class CustomDropDownMenu extends StatefulWidget {
   final List<String> menuItems;
   String? selectedItem;
   final String hintText;
-  final Icon onClick;
-  final Icon offClick;
+  final Icon onClickIcon;
+  final Icon offClickIcon;
 
   CustomDropDownMenu({
     Key? key,
     required this.menuItems,
     required this.selectedItem,
     required this.hintText,
-    this.onClick = const Icon(
+    this.onClickIcon = const Icon(
       Icons.arrow_drop_up_rounded,
       size: 50,
       color: Colors.grey, // Customize as needed
     ),
-    this.offClick = const Icon(
+    this.offClickIcon = const Icon(
       Icons.arrow_drop_down_rounded,
       size: 50,
       color: Colors.grey, // Customize as needed
@@ -83,6 +83,7 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
                         },
                       ),
                       //TODO: To add create subject widget
+                      
                       // Already created and is in widgets folder
                       const SizedBox(
                         height: 10.0,
@@ -117,7 +118,7 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                      isExpanded ? widget.onClick : widget.offClick,
+                      isExpanded ? widget.onClickIcon : widget.offClickIcon,
                     ],
                   ),
                 ),

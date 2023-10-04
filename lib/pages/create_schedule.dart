@@ -54,7 +54,7 @@ class _CreateScheduleState extends State<CreateSchedule> {
         elevation: 0,
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal:bodyPadding),
+        padding: EdgeInsets.symmetric(horizontal: bodyPadding),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -62,7 +62,7 @@ class _CreateScheduleState extends State<CreateSchedule> {
                 children: [
                   Container(
                     height: 12,
-                    padding:  EdgeInsets.symmetric(horizontal: bodyPadding),
+                    padding: EdgeInsets.symmetric(horizontal: bodyPadding),
                     child: DashedLine(
                       color: AppColor.kInActiveGreyColor,
                     ),
@@ -130,12 +130,12 @@ class _CreateScheduleState extends State<CreateSchedule> {
                           menuItems: ['V'],
                           selectedItem: selectedItem,
                           hintText: 'V',
-                          onClick: const Icon(
+                          onClickIcon: const Icon(
                             Icons.watch_later_rounded,
                             size: 50,
                             color: Colors.grey,
                           ),
-                          offClick: const Icon(
+                          offClickIcon: const Icon(
                             Icons.watch_later_rounded,
                             size: 50,
                             color: Colors.grey,
@@ -168,12 +168,12 @@ class _CreateScheduleState extends State<CreateSchedule> {
                           ],
                           selectedItem: selectedItem,
                           hintText: 'A',
-                          onClick: const Icon(
+                          onClickIcon: const Icon(
                             Icons.watch_later_rounded,
                             size: 50,
                             color: Colors.grey,
                           ),
-                          offClick: const Icon(
+                          offClickIcon: const Icon(
                             Icons.watch_later_rounded,
                             size: 50,
                             color: Colors.grey,

@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 
 import 'package:management/utils/app_color.dart';
 import 'package:management/utils/constants.dart';
-import 'package:management/utils/paths.dart';
 import 'package:management/widgets/custom_chip.dart';
 import 'package:management/widgets/profile_id_card.dart';
 import 'package:management/widgets/search_text_field.dart';
 
 import '../utils/utils.dart';
-import '../widgets/section_heading.dart';
 
 class ProfileDetails extends StatelessWidget {
   const ProfileDetails({super.key});

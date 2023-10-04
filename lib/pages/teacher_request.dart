@@ -100,7 +100,7 @@ class _TeacherRequestState extends State<TeacherRequest> {
                     Expanded(
                       child: ListView.builder(
                         physics: const BouncingScrollPhysics(),
-                        itemCount: 5,
+                        itemCount: 4,
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () => nextPage(
@@ -108,7 +108,7 @@ class _TeacherRequestState extends State<TeacherRequest> {
                               const ProfileDetails(), // TODO: Change with teacher profile card
                             ),
                             child: RectangleRequestCard(
-                              profileImage: Paths.drawerBackGroundImage,
+                              profileImage: 'assets/images/profileLady.png',
                               title: 'Asha Goel',
                               subTitle: 'Hindi, English  ',
                               timeAgo: '5 hours ago',

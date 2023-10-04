@@ -96,7 +96,7 @@ class _StudentSearchState extends State<StudentSearch> {
                       ),
                       Utils().bodySizedBox,
                       SizedBox(
-                        height: 100,
+                        height: 120,
                         child: ListView.builder(
                           physics: const BouncingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
@@ -104,7 +104,7 @@ class _StudentSearchState extends State<StudentSearch> {
                           itemBuilder: (context, index) => Container(
                             margin: const EdgeInsets.symmetric(horizontal: 5),
                             child: const SmallProfileCard(
-                              profileImage: Paths.schoolProfileImage,
+                              profileImage: 'assets/images/profileLady.png',
                               title: 'Ritu K',
                               subTitle: 'Class IV-C',
                             ),
@@ -117,7 +117,7 @@ class _StudentSearchState extends State<StudentSearch> {
                       ),
                       Utils().bodySizedBox,
                       SizedBox(
-                        height: 100,
+                        height: 120,
                         child: ListView.builder(
                           physics: const BouncingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
@@ -125,7 +125,7 @@ class _StudentSearchState extends State<StudentSearch> {
                           itemBuilder: (context, index) => Container(
                             margin: const EdgeInsets.symmetric(horizontal: 5),
                             child: const SmallProfileCard(
-                              profileImage: Paths.schoolProfileImage,
+                              profileImage: 'assets/images/femaleCard.png',
                               title: 'Ritu K',
                               subTitle: 'Class IV-C',
                             ),
@@ -138,7 +138,7 @@ class _StudentSearchState extends State<StudentSearch> {
                       ),
                       Utils().bodySizedBox,
                       SizedBox(
-                        height: 100,
+                        height: 120,
                         child: ListView.builder(
                           physics: const BouncingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
@@ -146,7 +146,7 @@ class _StudentSearchState extends State<StudentSearch> {
                           itemBuilder: (context, index) => Container(
                             margin: const EdgeInsets.symmetric(horizontal: 5),
                             child: const SmallProfileCard(
-                              profileImage: Paths.schoolProfileImage,
+                              profileImage: 'assets/images/female.png',
                               title: 'Ritu K',
                               subTitle: 'Class IV-C',
                             ),
@@ -159,7 +159,7 @@ class _StudentSearchState extends State<StudentSearch> {
                       ),
                       Utils().bodySizedBox,
                       SizedBox(
-                        height: 100,
+                        height: 120,
                         child: ListView.builder(
                           physics: const BouncingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
@@ -167,7 +167,7 @@ class _StudentSearchState extends State<StudentSearch> {
                           itemBuilder: (context, index) => Container(
                             margin: const EdgeInsets.symmetric(horizontal: 5),
                             child: const SmallProfileCard(
-                              profileImage: Paths.schoolProfileImage,
+                              profileImage: 'assets/images/femaleCard.png',
                               title: 'Ritu K',
                               subTitle: 'Class IV-C',
                             ),
@@ -194,11 +194,24 @@ class _StudentSearchState extends State<StudentSearch> {
                               title: 'I-A',
                               className: 'I-A',
                               studentCount: '23',
-                              color: Color(0xffD8F3FE),
+                              color: Color(0xffD8F3F4),
                             );
                           },
                         ),
                       ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: InkWell(
+                          onTap: () {
+                            //TODO: View all classes 
+                          },
+                          child: SectionHeading(
+                            text: 'View all Classes',
+                            color: AppColor.kPurple,
+                          ),
+                        ),
+                      ),
+                      Utils().bodySizedBox,
                     ],
                   ),
                 ),

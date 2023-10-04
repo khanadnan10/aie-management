@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:management/pages/feed_screen.dart';
-import 'package:management/pages/holidays.dart';
+import 'package:management/pages/create_class_and_section.dart';
 import 'package:management/pages/student_search.dart';
-import 'package:management/pages/teacher_search.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +26,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       /* Page view used only to show all the pages */
-      home: const Holidays(),
+      home: const CreateClassAndSection(), 
     );
   }
 }
